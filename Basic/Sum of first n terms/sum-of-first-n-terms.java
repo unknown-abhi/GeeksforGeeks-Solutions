@@ -28,7 +28,7 @@ class Solution {
     long sumOfSeries(long n) {
         // code here
         if (n == 0) {
-            return nTerm;
+            return 1;
         } else {
             nTerm += (long) Math.pow(count, 3);
             count++;
