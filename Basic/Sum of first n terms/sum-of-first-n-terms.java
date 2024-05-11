@@ -23,17 +23,13 @@ class GFG {
 // User function Template for Java
 
 class Solution {
-    long nTerm = 0, count = 1;
+    long nTerm = 0;
     
     long sumOfSeries(long n) {
         // code here
-        if (n == 0) {
+        if (n == 1) {
             return 1;
-        } else {
-            nTerm += (long) Math.pow(count, 3);
-            count++;
         }
-        sumOfSeries(n - 1);
-        return nTerm;
+        return (long) Math.pow(n, 3) + sumOfSeries(n - 1);
     }
 }
