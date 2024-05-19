@@ -32,16 +32,18 @@ public class Main {
 class Solution {
     int print2largest(int arr[], int n) {
         // code here
-       if (arr.length < 2) {
+         if (arr.length < 2) {
             return -1;
         } else {
-            Arrays.sort(arr);
-            for (int i = n - 1; i > 0; i--) {
-            if (arr[i] != arr[i - 1]) {
-                return arr[i - 1];
-            }
+             int largest = arr[0], second_lar = -1;
+        for (int i = 1; i < n; i++) {
+            if (largest < arr[i]) {
+                second_lar = largest;
+                largest = arr[i];
+            } else if (second_lar < arr[i] && arr[i] != largest)
+                second_lar = arr[i];
         }
-        return -1;
-        }
+        return second_lar;
         }
     }
+}
