@@ -55,20 +55,37 @@ class Solution
     public static ArrayList<Integer> findUnion(int arr1[], int arr2[], int n, int m)
     {
         // add your code here
-        Set<Integer> newArr = new TreeSet<>();
+       ArrayList<Integer> tmpList = new ArrayList<>();
+       //Two Pointers
+        int i = 0;
+        int j = 0;
+        while (i < n && j < m) {
+            if (arr1[i] <= arr2[j]) {
+                if (tmpList.size() == 0 || tmpList.get(tmpList.size() - 1) != arr1[i]) {
+                    tmpList.add(arr1[i]);
+                }
+                i++;
+            } else {
+                if (tmpList.size() == 0 || tmpList.get(tmpList.size() - 1) != arr2[j]) {
+                    tmpList.add(arr2[j]);
+                }
+                j++;
+            }
+        }
 
-        for (int i = 0; i < n; i++) {
-            newArr.add(arr1[i]);
+        while (i < n) {
+            if (tmpList.size() == 0 || tmpList.get(tmpList.size() - 1) != arr1[i]) {
+                tmpList.add(arr1[i]);
+            }
+            i++;
         }
-        for (int i = 0; i < m; i++) {
-            newArr.add(arr2[i]);
+
+        while (j < m) {
+            if (tmpList.size() == 0 || tmpList.get(tmpList.size() - 1) != arr2[j]) {
+                tmpList.add(arr2[j]);
+            }
+            j++;
         }
-        ArrayList<Integer> tmpList = new ArrayList<>();
-        for (int i : newArr) {
-            tmpList.add(i);
-        }
-        
-        // Collections.sort(tmpList);
 
         return tmpList;
     }
