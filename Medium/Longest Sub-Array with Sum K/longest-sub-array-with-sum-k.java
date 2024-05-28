@@ -60,6 +60,7 @@ class Solution{
                 maxLen = i + 1;
             }
             
+            // If added '0' in sum then skip
             if (!maxSubArr.containsKey(sum)) {
                 maxSubArr.put(sum, i);
             }
@@ -68,9 +69,6 @@ class Solution{
                 maxLen = Math.max(maxLen, i - maxSubArr.get(sum - K));
             }
             
-            //  if (maxSubArr.containsKey(sum)) {
-            //     maxSubArr.put(sum, i);
-            // }
         }
         return maxLen;
     }
