@@ -57,8 +57,8 @@ class Solution{
         for (int i = n - 1; i >= 0; i--) {
             if (arr[i] >= max) {
                 leader.add(arr[i]);
+                max = arr[i];
             }
-            max = Math.max(max, arr[i]);
         }
         Collections.reverse(leader);
 
