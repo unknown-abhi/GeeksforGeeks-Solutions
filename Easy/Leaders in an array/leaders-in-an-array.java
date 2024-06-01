@@ -50,27 +50,18 @@ class Solution{
     static ArrayList<Integer> leaders(int arr[], int n){
         // Your code here
         
-        int i = 0, j = 1;
         ArrayList<Integer> leader = new ArrayList<>();
+        
+        int max = Integer.MIN_VALUE;
 
-        while (i < n) {
-            if (i == n - 1) {
+        for (int i = n - 1; i >= 0; i--) {
+            if (arr[i] >= max) {
                 leader.add(arr[i]);
-                break;
             }
-            if (arr[i] < arr[j]) {
-                i++;
-                j = i + 1;
-            } else {
-                j++;
-                if (j >= n) {
-                    leader.add(arr[i]);
-                    i++;
-                    j = i + 1;
-                }
-            }
-
+            max = Math.max(max, arr[i]);
         }
+        Collections.reverse(leader);
+
         return leader;
     }
 }
