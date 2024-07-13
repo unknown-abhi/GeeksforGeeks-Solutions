@@ -40,6 +40,7 @@ class Solution
             int mid = (low + high) / 2;
 
             long temp = n, ans = 1;
+            
             while (temp > 0) {
                 ans = ans * mid;
                 temp--;
