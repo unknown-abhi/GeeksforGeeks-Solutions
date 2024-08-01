@@ -7,19 +7,16 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int tc = Integer.parseInt(br.readLine().trim());
+        Scanner sc = new Scanner(System.in);
+        int tc = sc.nextInt();
         while (tc-- > 0) {
-            String[] inputLine;
-            inputLine = br.readLine().trim().split(" ");
-            int n = Integer.parseInt(inputLine[0]);
-            int m = Integer.parseInt(inputLine[1]);
-            int[][] arr = new int[n][m];
-            inputLine = br.readLine().trim().split(" ");
+            int n = sc.nextInt();
+            int m = sc.nextInt();
+            int arr[][] = new int[n][m];
 
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
-                    arr[i][j] = Integer.parseInt(inputLine[i * m + j]);
+                    arr[i][j] = sc.nextInt();
                 }
             }
             int ans = new Solution().rowWithMax1s(arr);
@@ -35,6 +32,7 @@ public class Main {
 
 class Solution {
     public int rowWithMax1s(int arr[][]) {
+        // code here
         // code here
         int maxRowNo = 0, index = -1;
         
@@ -68,6 +66,5 @@ class Solution {
         }
         
         return index;
-        
     }
 }
