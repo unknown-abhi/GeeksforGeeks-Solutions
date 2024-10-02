@@ -32,28 +32,21 @@ class GFG
 
 
 class Solution {
-    Set<String> list = new TreeSet<>();
-    
-    public void permutation(String S, String ans){
-        
+    private void permutation(String S, String ans, Set<String> result){
         if(S.length() == 0){
-            list.add(ans);
+            result.add(ans);
             return;
         }
         
         for(int i = 0; i < S.length(); i++){
-            
             char c = S.charAt(i);
-            
-            permutation(S.substring(0, i) + S.substring(i + 1), ans + c);
+            permutation(S.substring(0, i) + S.substring(i + 1), ans + c, result);
         }
     }
     
     public List<String> find_permutation(String S) {
-        // Code here
-        
-        permutation(S, "");
-        
-        return new ArrayList<>(list);
+        Set<String> result = new TreeSet<>();  // Using TreeSet to store sorted unique permutations
+        permutation(S, "", result);
+        return new ArrayList<>(result);  // Converting Set to List
     }
 }
