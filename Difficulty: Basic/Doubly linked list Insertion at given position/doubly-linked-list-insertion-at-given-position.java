@@ -109,14 +109,14 @@ class Solution {
                 Node tmp = new Node(x);
                 tmp.next = mover.next;
                 tmp.prev = mover;
+                
                 mover.next = tmp;
+                
                 break;
             }
-
             mover = mover.next;
             count++;
         }
-
         return head;
     }
 }
