@@ -54,6 +54,8 @@ class Merge_Sort
 
 // } Driver Code Ends
 
+
+
  
 class Solution
 {
@@ -95,9 +97,11 @@ class Solution
         if (l >= r) {
             return;
         }
+        
         int mid = (l + r) / 2;
         mergeSort(arr, l, mid);
         mergeSort(arr, mid + 1, r);
+        
         merge(arr, l, mid, r);
     }
 }
