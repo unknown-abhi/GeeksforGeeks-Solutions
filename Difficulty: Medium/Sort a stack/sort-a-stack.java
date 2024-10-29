@@ -18,10 +18,14 @@ class SortedStack {
                 a.pop();
             }
             System.out.println();
-        }
+        
+System.out.println("~");
+}
     }
 }
 // } Driver Code Ends
+
+
 
 
 /*Complete the function below*/
