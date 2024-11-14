@@ -6,15 +6,14 @@ import java.util.*;
 // User function Template for Java
 
 class Solution {
-    public boolean arraySortedOrNot(List<Integer> arr) {
+    public boolean arraySortedOrNot(int[] arr) {
         // code here
-        
-        for(int i = 1; i < arr.size(); i++){
-            if(arr.get(i - 1) > arr.get(i)){
+        for(int i = 0; i < arr.length - 1; i++){
+            if(arr[i] > arr[i + 1] ){
                 return false;
             }
-        }
-        return true;
+       }
+       return true;
     }
 }
 
@@ -28,13 +27,13 @@ class Main {
         while (t-- > 0) {
             String line = scanner.nextLine();
             String[] numStrings = line.split(" ");
-            List<Integer> nums = new ArrayList<>();
-            for (String numString : numStrings) {
-                nums.add(Integer.parseInt(numString));
-            }
+            int arr[] = new int[numStrings.length];
+            for (int i = 0; i < arr.length; i++)
+                arr[i] = Integer.parseInt(numStrings[i]);
             Solution ob = new Solution();
-            boolean ans = ob.arraySortedOrNot(nums);
+            boolean ans = ob.arraySortedOrNot(arr);
             System.out.println(ans ? "true" : "false");
+            System.out.println("~");
         }
         scanner.close();
     }
